@@ -18,7 +18,7 @@ function App() {
         </div>
       </header>
       <section className="md:container md:mx-auto p-8">
-        <div className="bg-white rounded-xl shadow-md sm:w-1/2 p-8 mx-auto">
+        <div className="bg-white rounded-xl shadow-md sm:w-full md:w-2/3 lg:w-1/2 p-8 mx-auto">
           <div className="py-2">
             <label
               htmlFor="name"
