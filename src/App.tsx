@@ -17,8 +17,8 @@ function App() {
           </a>
         </div>
       </header>
-      <section className="grid place-content-center">
-        <div className="bg-white rounded-md shadow-md min-h-[200px] min-w-[500px] p-8">
+      <section className="md:container md:mx-auto p-8">
+        <div className="bg-white rounded-xl shadow-md sm:w-1/2 p-8 mx-auto">
           <div className="py-2">
             <label
               htmlFor="name"
@@ -29,7 +29,7 @@ function App() {
             <input
               type="text"
               id="name"
-              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-violet-500 appearance-none"
+              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-violet-500 appearance-none"
               required
             />
           </div>
@@ -43,7 +43,7 @@ function App() {
             <input
               type="text"
               id="password"
-              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-violet-500 appearance-none"
+              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-violet-500 appearance-none"
               required
             />
           </div>
