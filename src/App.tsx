@@ -29,7 +29,7 @@ function App() {
             <input
               type="text"
               id="name"
-              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-violet-500 appearance-none"
+              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-0 appearance-none transition-all"
               required
             />
           </div>
@@ -43,14 +43,14 @@ function App() {
             <input
               type="text"
               id="password"
-              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-violet-500 appearance-none"
+              className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-violet-600 focus:border-violet-500 focus-visible:outline-0 appearance-none transition-all"
               required
             />
           </div>
           <div className="py-2 grid place-content-center ">
             <button
               type="submit"
-              className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+              className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center transition-all"
             >
               Login
             </button>
