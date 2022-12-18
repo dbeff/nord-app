@@ -1,18 +1,18 @@
 import React from "react";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-
-import { store } from "./store/store";
-import { Api } from "./modules/Api";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-
 import "./index.css";
-import Layout from "./pages/Layout";
+
+import { Api } from "./modules/Api";
+import { store } from "./store/store";
+
+import Servers from "./pages/Servers";
 import Login from "./pages/Login";
-import Home from "./pages/Home";
+import Main from "./pages/Main";
 
 Api.interceptor(store);
 
@@ -24,15 +24,14 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Login />} />
-            <Route path="home" element={<Home />} />
+          <Route path="/" element={<Main />}>
+            <Route path="Main" element={<Main />} index />
+            <Route path="Servers" element={<Servers />} />
+            <Route path="login" element={<Login />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
       </BrowserRouter>
-
-      {/* <App /> */}
     </Provider>
   </React.StrictMode>
 );

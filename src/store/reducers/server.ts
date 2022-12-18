@@ -49,7 +49,6 @@ export const fetchServers = () => {
     const token = getState().auth.token;
     dispatch(serverSlice.actions.loading());
 
-    console.log("token", token);
     Api.axios
       .get("servers", {
         headers: {

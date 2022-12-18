@@ -4,21 +4,23 @@ import { fetchServers, serverSlice } from "../store/reducers/server";
 import { RootState } from "../store/store";
 import { ChevronUpDownIcon } from "@heroicons/react/24/solid";
 
-export default function Home() {
+export default function Servers() {
   const dispatch = useAppDispatch();
   const { orderServerByDistance } = serverSlice.actions;
   const { servers, loading, error } = useAppSelector(
     (state: RootState) => state.server
   );
-  const { token } = useAppSelector((state: RootState) => state.auth);
-
-  useEffect(() => {
-    if (token && !servers && !loading && !error) dispatch(fetchServers());
-  }, [servers, token, loading, error, dispatch]);
+  const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
 
   const onClickDistance = () => {
     dispatch(orderServerByDistance());
   };
+
+  useEffect(() => {
+    if (isAuthenticated && !servers && !loading && !error) {
+      dispatch(fetchServers());
+    }
+  }, [servers, isAuthenticated, loading, error, dispatch]);
 
   return (
     <div className="md:container md:mx-auto p-8">
@@ -39,13 +41,15 @@ export default function Home() {
           </div>
         </div>
 
-        {!token && <div className="text-center p-4">Not authenticated</div>}
+        {!isAuthenticated && (
+          <div className="text-center p-4">Not authenticated</div>
+        )}
 
         {loading && <div className="text-center p-4">Loading...</div>}
 
-        {servers?.map((item) => (
+        {servers?.map((item, i) => (
           <div
-            key={item.name}
+            key={`${item.name}-${i}`}
             className="flex flex-row hover:bg-selection transition-colors duration-500 font-medium text-foreground"
           >
             <div className="flex-1 p-4 text-center  ">{item.name}</div>

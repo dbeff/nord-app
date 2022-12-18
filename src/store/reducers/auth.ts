@@ -4,6 +4,7 @@ import { Api } from "../../modules/Api";
 
 export interface AuthState {
   token: string | null;
+  isAuthenticated: boolean;
   loading: boolean;
   error: string | null;
 }
@@ -14,6 +15,7 @@ export interface TokenPayload {
 
 export const initialState: AuthState = {
   token: null,
+  isAuthenticated: false,
   loading: false,
   error: null,
 };
@@ -27,6 +29,7 @@ export const authSlice = createSlice({
     },
     authenticate(state, action: PayloadAction<TokenPayload>) {
       state.token = action.payload.token;
+      state.isAuthenticated = true;
       state.loading = false;
     },
     setError(state, action: PayloadAction<string>) {

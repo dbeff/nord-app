@@ -20,7 +20,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (token) navigate("home");
+    if (token) navigate("main");
   }, [token, navigate]);
 
   return (
@@ -63,7 +63,6 @@ export default function Login() {
             type="submit"
             className="text-white bg-brand hover:bg-brand focus:ring-4 focus:outline-none focus:ring-brand-light font-medium rounded-full text-sm w-full sm:w-auto px-5 py-2.5 text-center transition-all"
             onClick={() => {
-              console.log("clicked");
               dispatch(fetchToken(inputValues.username, inputValues.password));
             }}
           >

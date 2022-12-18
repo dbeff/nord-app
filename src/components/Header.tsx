@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useAppSelector } from "../store/hooks";
+import { RootState } from "../store/store";
 
 export default function Header() {
+  const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
+
   return (
     <header className="flex align-middle justify-between">
       <a href="/" className="block p-5">
@@ -10,9 +15,14 @@ export default function Header() {
         <a href="/" className="block p-5 ">
           Main
         </a>
-        <a href="/" className="block p-5">
+        {isAuthenticated && (
+          <Link to="servers" className="block p-5">
+            Servers
+          </Link>
+        )}
+        <Link to="login" className="block p-5">
           Login
-        </a>
+        </Link>
       </div>
     </header>
   );
