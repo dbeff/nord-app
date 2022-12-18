@@ -8,6 +8,10 @@ export interface AuthState {
   error: string | null;
 }
 
+export interface TokenPayload {
+  token: string;
+}
+
 export const initialState: AuthState = {
   token: null,
   loading: false,
@@ -18,19 +22,28 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    authenticate(state, action: PayloadAction<string>) {
-      state.token = action.payload;
+    loading(state) {
+      state.loading = true;
+    },
+    authenticate(state, action: PayloadAction<TokenPayload>) {
+      state.token = action.payload.token;
+      state.loading = false;
     },
     setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
+      state.loading = false;
     },
   },
 });
 
-export const authorize = () => {
+export const fetchToken = (user: string, password: string) => {
   return async (dispatch: Dispatch) => {
+    dispatch(authSlice.actions.loading());
     Api.axios
-      .get("token")
+      .post("tokens", {
+        username: user,
+        password: password,
+      })
       .then((response) => {
         dispatch(authSlice.actions.authenticate(response.data));
       })
