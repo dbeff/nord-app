@@ -10,12 +10,14 @@ export interface serverState {
   servers: Server.item[] | null;
   loading: boolean;
   error: string | null;
+  distanceOrderAsc: boolean;
 }
 
 export const initialState: serverState = {
   servers: null,
   loading: false,
   error: null,
+  distanceOrderAsc: false,
 };
 
 export const serverSlice = createSlice({
@@ -32,6 +34,12 @@ export const serverSlice = createSlice({
     setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
       state.loading = false;
+    },
+    orderServerByDistance(state) {
+      state.distanceOrderAsc = !state.distanceOrderAsc;
+      state.servers = state.servers
+        ? Server.sortByDistance(state.servers, state.distanceOrderAsc)
+        : state.servers;
     },
   },
 });

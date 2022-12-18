@@ -6,11 +6,11 @@ export default function Header() {
       <a href="/" className="block p-5">
         <img src={logo} className="" alt="logo" />
       </a>
-      <div className="flex">
-        <a href="/" className="block p-5 text-white ">
+      <div className="flex text-white font-medium">
+        <a href="/" className="block p-5 ">
           Main
         </a>
-        <a href="/" className="block p-5 text-white ">
+        <a href="/" className="block p-5">
           Login
         </a>
       </div>

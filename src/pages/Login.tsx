@@ -10,8 +10,8 @@ export default function Login() {
   const navigate = useNavigate();
   const { loading, token } = useAppSelector((state: RootState) => state.auth);
   const [inputValues, setInputValues] = useState({
-    username: "",
-    password: "",
+    username: "tesonet",
+    password: "partyanimal",
   });
 
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
