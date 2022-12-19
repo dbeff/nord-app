@@ -6,7 +6,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      sans: ["Roboto", ...defaultTheme.fontFamily.sans],
     },
     extend: {
       colors: {
@@ -20,6 +20,7 @@ module.exports = {
         },
         foreground: {
           DEFAULT: "#383C43",
+          light: "#8A8C91",
         },
       },
     },

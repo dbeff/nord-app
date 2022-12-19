@@ -30,8 +30,8 @@ export default function Header() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M0 14h24v3H0v-3zm0-7h24v3H0V7zm0-7h24v3H0V0z"
             />
           </svg>
