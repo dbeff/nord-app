@@ -11,6 +11,6 @@ describe("Server", () => {
       { name: "server 1", distance: 1 },
       { name: "server 2", distance: 2 },
     ];
-    expect(Server.sortByDistance(listMock)).toStrictEqual(listExpected);
+    expect(Server.sortByDistance(listMock, true)).toStrictEqual(listExpected);
   });
 });
