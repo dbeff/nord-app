@@ -38,7 +38,7 @@ export default function Login() {
   }, [token, navigate]);
 
   return (
-    <section className=" flex items-center justify-center md:container md:mx-auto p-8 min-h-[80vh]">
+    <section className="flex items-center justify-center md:container md:mx-auto p-8 min-h-[80vh]">
       <form
         className="bg-white rounded-xl shadow-md w-full md:w-[570px] py-6 px-8"
         onSubmit={onSubmit}
