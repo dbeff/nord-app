@@ -7,14 +7,14 @@ import { Server } from "../../modules/Server";
 import { RootState } from "../store";
 
 export interface serverState {
-  servers: Server.item[] | null;
+  allServers: Server.item[] | null;
   loading: boolean;
   error: string | null;
   distanceOrderAlt: boolean;
 }
 
 export const initialState: serverState = {
-  servers: null,
+  allServers: null,
   loading: false,
   error: null,
   distanceOrderAlt: false,
@@ -28,7 +28,7 @@ export const serverSlice = createSlice({
       state.loading = true;
     },
     fetchServersSuccess(state, action: PayloadAction<Server.item[]>) {
-      state.servers = action.payload;
+      state.allServers = action.payload;
       state.loading = false;
     },
     setError(state, action: PayloadAction<string>) {
@@ -37,16 +37,16 @@ export const serverSlice = createSlice({
     },
     orderByDistance(state) {
       state.distanceOrderAlt = !state.distanceOrderAlt;
-      state.servers = state.servers
-        ? Server.sortByDistance(state.servers, state.distanceOrderAlt)
-        : state.servers;
+      state.allServers = state.allServers
+        ? Server.sortByDistance(state.allServers, state.distanceOrderAlt)
+        : state.allServers;
     },
 
     orderByName(state) {
       state.distanceOrderAlt = !state.distanceOrderAlt;
-      state.servers = state.servers
-        ? Server.sortByName(state.servers, state.distanceOrderAlt)
-        : state.servers;
+      state.allServers = state.allServers
+        ? Server.sortByName(state.allServers, state.distanceOrderAlt)
+        : state.allServers;
     },
   },
 });

@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { fetchServers, serverSlice } from "../store/reducers/server";
-import { RootState } from "../store/store";
 import { ChevronUpDownIcon } from "@heroicons/react/24/solid";
+
+import { RootState } from "../store/store";
+import { fetchServers, serverSlice } from "../store/reducers/server";
+
+import { Server } from "../modules/Server";
 
 export default function Servers() {
   const dispatch = useAppDispatch();
   const { orderByName, orderByDistance } = serverSlice.actions;
-  const { servers, loading, error } = useAppSelector(
+  const { allServers, loading, error } = useAppSelector(
     (state: RootState) => state.server
   );
   const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
@@ -20,11 +23,23 @@ export default function Servers() {
     dispatch(orderByDistance());
   };
 
+  const renderItems = (item: Server.item, i: number) => {
+    return (
+      <div
+        key={`${item.name}-${i}`}
+        className="flex flex-row hover:bg-selection transition-colors duration-500 font-medium text-foreground"
+      >
+        <div className="flex-1 p-4 text-center  ">{item.name}</div>
+        <div className="flex-1 p-4 text-center">{item.distance}</div>
+      </div>
+    );
+  };
+
   useEffect(() => {
-    if (isAuthenticated && !servers && !loading && !error) {
+    if (isAuthenticated && !allServers && !loading && !error) {
       dispatch(fetchServers());
     }
-  }, [servers, isAuthenticated, loading, error, dispatch]);
+  }, [allServers, isAuthenticated, loading, error, dispatch]);
 
   return (
     <div className="md:container md:mx-auto p-8">
@@ -48,21 +63,7 @@ export default function Servers() {
           </div>
         </div>
 
-        {!isAuthenticated && (
-          <div className="text-center p-4">Not authenticated</div>
-        )}
-
-        {loading && <div className="text-center p-4">Loading...</div>}
-
-        {servers?.map((item, i) => (
-          <div
-            key={`${item.name}-${i}`}
-            className="flex flex-row hover:bg-selection transition-colors duration-500 font-medium text-foreground"
-          >
-            <div className="flex-1 p-4 text-center  ">{item.name}</div>
-            <div className="flex-1 p-4 text-center">{item.distance}</div>
-          </div>
-        ))}
+        {allServers?.map(renderItems)}
       </div>
     </div>
   );

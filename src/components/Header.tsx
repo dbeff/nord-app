@@ -21,7 +21,23 @@ export default function Header() {
       <Link to="/" className="block p-5">
         <img src={logo} className="" alt="logo" />
       </Link>
-      <nav className="flex text-white font-medium">
+      <div className="block md:hidden p-5 hover:opacity-80 transition-opacity cursor-pointer">
+        <div className="flex items-center text-white">
+          <svg
+            className="fill-current"
+            width="24"
+            height="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 14h24v3H0v-3zm0-7h24v3H0V7zm0-7h24v3H0V0z"
+            />
+          </svg>
+        </div>
+      </div>
+      <nav className="hidden md:flex text-white font-medium">
         <Link to="/" className={linkStyle}>
           Main
         </Link>
