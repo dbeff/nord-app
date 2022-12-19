@@ -29,14 +29,14 @@ export default function Login() {
         <div className="py-2">
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-foreground dark:text-white"
           >
             Name
           </label>
           <input
             type="text"
             name="username"
-            className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-brand focus:border-brand focus-visible:outline-0 appearance-none transition-all"
+            className="block w-full p-2.5 border border-gray-300 text-foreground text-sm rounded-md focus:ring-brand focus:border-brand focus-visible:outline-0 appearance-none transition-all"
             required
             value={inputValues.username}
             onChange={handleOnChange}
@@ -45,14 +45,14 @@ export default function Login() {
         <div className="py-2">
           <label
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-foreground dark:text-white"
           >
             Password
           </label>
           <input
             type="text"
             name="password"
-            className="block w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-brand focus:border-brand focus-visible:outline-0 appearance-none transition-all"
+            className="block w-full p-2.5 border border-gray-300 text-foreground text-sm rounded-md focus:ring-brand focus:border-brand focus-visible:outline-0 appearance-none transition-all"
             required
             value={inputValues.password}
             onChange={handleOnChange}
