@@ -35,10 +35,17 @@ export const serverSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-    orderServerByDistance(state) {
+    orderByDistance(state) {
       state.distanceOrderAsc = !state.distanceOrderAsc;
       state.servers = state.servers
         ? Server.sortByDistance(state.servers, state.distanceOrderAsc)
+        : state.servers;
+    },
+
+    orderByName(state) {
+      state.distanceOrderAsc = !state.distanceOrderAsc;
+      state.servers = state.servers
+        ? Server.sortByName(state.servers, state.distanceOrderAsc)
         : state.servers;
     },
   },

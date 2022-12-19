@@ -9,4 +9,12 @@ export namespace Server {
       return asc ? a.distance - b.distance : b.distance - a.distance;
     });
   };
+
+  export const sortByName = (list: item[], asc: boolean) => {
+    return list.sort((a, b) => {
+      if (a.name < b.name) return asc ? -1 : 1;
+      if (a.name > b.name) return asc ? 1 : -1;
+      return 0;
+    });
+  };
 }

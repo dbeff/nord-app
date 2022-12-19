@@ -6,14 +6,18 @@ import { ChevronUpDownIcon } from "@heroicons/react/24/solid";
 
 export default function Servers() {
   const dispatch = useAppDispatch();
-  const { orderServerByDistance } = serverSlice.actions;
+  const { orderByName, orderByDistance } = serverSlice.actions;
   const { servers, loading, error } = useAppSelector(
     (state: RootState) => state.server
   );
   const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
 
+  const onClickName = () => {
+    dispatch(orderByName());
+  };
+
   const onClickDistance = () => {
-    dispatch(orderServerByDistance());
+    dispatch(orderByDistance());
   };
 
   useEffect(() => {
@@ -27,7 +31,10 @@ export default function Servers() {
       <div className="bg-white rounded-xl shadow-md sm:w-full md:w-2/3 lg:w-1/2 mx-auto overflow-hidden">
         <div className="bg-brand text-white">
           <div className="flex flex-row font-medium">
-            <div className="flex flex-1 p-4 text-center align-middle justify-center cursor-pointer select-none active:bg-brand-dark transition-colors">
+            <div
+              className="flex flex-1 p-4 text-center align-middle justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
+              onClick={onClickName}
+            >
               <div>Servers</div>
               <ChevronUpDownIcon className="h-6 w-6 mx-2" />
             </div>
