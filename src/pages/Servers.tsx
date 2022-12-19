@@ -6,6 +6,7 @@ import { RootState } from "../store/store";
 import { fetchServers, serverSlice } from "../store/reducers/server";
 
 import { Server } from "../modules/Server";
+import Spinner from "../components/Spinner";
 
 export default function Servers() {
   const dispatch = useAppDispatch();
@@ -47,14 +48,14 @@ export default function Servers() {
         <div className="bg-brand text-white">
           <div className="flex flex-row font-medium">
             <div
-              className="flex flex-1 p-4 text-center align-middle justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
+              className="flex flex-1 p-4 text-center items-center justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
               onClick={onClickName}
             >
               <div>Servers</div>
               <ChevronUpDownIcon className="h-6 w-6 mx-2" />
             </div>
             <div
-              className="flex flex-1 p-4 text-center align-middle justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
+              className="flex flex-1 p-4 text-center items-center justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
               onClick={onClickDistance}
             >
               <div>Distance</div>
@@ -62,6 +63,12 @@ export default function Servers() {
             </div>
           </div>
         </div>
+
+        {loading && (
+          <div className="flex flex-1 justify-center items-center p-8">
+            <Spinner textColor="text-brand" />
+          </div>
+        )}
 
         {allServers?.map(renderItems)}
       </div>

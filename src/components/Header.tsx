@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
@@ -10,19 +11,30 @@ export default function Header() {
   const { logout } = authSlice.actions;
   const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
 
-  const linkStyle = `block p-5 hover:opacity-80 transition-opacity cursor-pointer`;
+  const linkStyle = `block lg:inline-block p-5 hover:opacity-80 transition-opacity cursor-pointer `;
+
+  const [navToggle, setNavToggle] = useState(false);
+
+  const onClickMenu = () => {
+    setNavToggle(!navToggle);
+  };
 
   const onClickLogout = () => {
     dispatch(logout());
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-black flex align-middle justify-between">
-      <Link to="/" className="block p-5">
-        <img src={logo} className="" alt="logo" />
-      </Link>
-      <div className="block md:hidden p-5 hover:opacity-80 transition-opacity cursor-pointer">
-        <div className="flex items-center text-white">
+    <header className="sticky top-0 z-50 h-[50px] bg-black flex items-center justify-between flex-wrap text-white font-medium relative ">
+      <div className="flex items-center">
+        <Link to="/" className="block p-5">
+          <img src={logo} className="" alt="logo" />
+        </Link>
+      </div>
+      <div className="block md:hidden">
+        <button
+          className="flex items-center p-5 hover:opacity-80 transition-opacity cursor-pointer"
+          onClick={onClickMenu}
+        >
           <svg
             className="fill-current"
             width="24"
@@ -35,9 +47,13 @@ export default function Header() {
               d="M0 14h24v3H0v-3zm0-7h24v3H0V7zm0-7h24v3H0V0z"
             />
           </svg>
-        </div>
+        </button>
       </div>
-      <nav className="hidden md:flex text-white font-medium">
+      <nav
+        className={`absolute top-[50px] left-0 ${
+          navToggle ? "hidden" : "block"
+        }  w-full flex-grow justify-end bg-black min-h-screen md:flex md:items-center md:w-auto md:shadow-none md:static md:min-h-0`}
+      >
         <Link to="/" className={linkStyle}>
           Main
         </Link>

@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
 import { fetchToken } from "../store/reducers/auth";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-
-import { ArrowPathIcon } from "@heroicons/react/24/solid";
+import Spinner from "../components/Spinner";
 
 export default function Login() {
   const dispatch = useAppDispatch();
@@ -83,11 +82,7 @@ export default function Login() {
             disabled={!isValid() || loading}
             onClick={onSubmit}
           >
-            {loading ? (
-              <ArrowPathIcon className="inline-block h-4 w-4 animate-spin" />
-            ) : (
-              <span>Login</span>
-            )}
+            {loading ? <Spinner /> : <span>Login</span>}
           </button>
         </div>
       </form>
