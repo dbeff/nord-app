@@ -4,16 +4,16 @@ export namespace Server {
     distance: number;
   }
 
-  export const sortByDistance = (list: item[], asc: boolean) => {
+  export const sortByDistance = (list: item[], alt: boolean) => {
     return list.sort((a, b) => {
-      return asc ? a.distance - b.distance : b.distance - a.distance;
+      return alt ? a.distance - b.distance : b.distance - a.distance;
     });
   };
 
-  export const sortByName = (list: item[], asc: boolean) => {
+  export const sortByName = (list: item[], alt: boolean) => {
     return list.sort((a, b) => {
-      if (a.name < b.name) return asc ? -1 : 1;
-      if (a.name > b.name) return asc ? 1 : -1;
+      if (a.name < b.name) return alt ? -1 : 1;
+      if (a.name > b.name) return alt ? 1 : -1;
       return 0;
     });
   };

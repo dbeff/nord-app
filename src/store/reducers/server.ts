@@ -10,14 +10,14 @@ export interface serverState {
   servers: Server.item[] | null;
   loading: boolean;
   error: string | null;
-  distanceOrderAsc: boolean;
+  distanceOrderAlt: boolean;
 }
 
 export const initialState: serverState = {
   servers: null,
   loading: false,
   error: null,
-  distanceOrderAsc: false,
+  distanceOrderAlt: false,
 };
 
 export const serverSlice = createSlice({
@@ -36,16 +36,16 @@ export const serverSlice = createSlice({
       state.loading = false;
     },
     orderByDistance(state) {
-      state.distanceOrderAsc = !state.distanceOrderAsc;
+      state.distanceOrderAlt = !state.distanceOrderAlt;
       state.servers = state.servers
-        ? Server.sortByDistance(state.servers, state.distanceOrderAsc)
+        ? Server.sortByDistance(state.servers, state.distanceOrderAlt)
         : state.servers;
     },
 
     orderByName(state) {
-      state.distanceOrderAsc = !state.distanceOrderAsc;
+      state.distanceOrderAlt = !state.distanceOrderAlt;
       state.servers = state.servers
-        ? Server.sortByName(state.servers, state.distanceOrderAsc)
+        ? Server.sortByName(state.servers, state.distanceOrderAlt)
         : state.servers;
     },
   },
