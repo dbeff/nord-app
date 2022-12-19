@@ -2,13 +2,14 @@ import React from "react";
 
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 import { Api } from "./modules/Api";
-import { store } from "./store/store";
+import { persistor, store } from "./store/store";
 
 import Servers from "./pages/Servers";
 import Login from "./pages/Login";
@@ -22,16 +23,18 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Main />}>
-            <Route path="Main" element={<Main />} index />
-            <Route path="Servers" element={<Servers />} />
-            <Route path="login" element={<Login />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Main />}>
+              <Route path="Main" element={<Main />} index />
+              <Route path="Servers" element={<Servers />} />
+              <Route path="login" element={<Login />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
