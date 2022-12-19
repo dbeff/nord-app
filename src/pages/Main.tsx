@@ -11,7 +11,8 @@ export default function Main() {
   const shouldAuthenticate = !isAuthenticated && pathname !== "/login";
 
   return (
-    <div className="bg-[url('/src/assets/background.png')] bg-cover bg-center bg-no-repeat antialiased bg-fixed min-h-screen">
+    <div className="min-h-screen">
+      <div className="fixed top-0 left-0 w-screen h-screen -z-[1] bg-[url('/src/assets/background.png')] bg-cover bg-center bg-no-repeat transform translate-x-0 translate-y-0"></div>
       <Header />
       <div className="md:container md:mx-auto">
         {shouldAuthenticate ? <Navigate replace to={"login"} /> : <Outlet />}
