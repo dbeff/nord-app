@@ -1,6 +1,5 @@
 {
   "name": "nord-app",
-  "homepage": "https://dbeff.github.io/nord-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
