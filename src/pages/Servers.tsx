@@ -28,9 +28,9 @@ export default function Servers() {
     return (
       <div
         key={`${item.name}-${i}`}
-        className="flex flex-row hover:bg-selection transition-colors duration-500 font-medium text-foreground"
+        className="flex flex-row hover:bg-selection transition-colors duration-500 font-medium text-foreground text-sm"
       >
-        <div className="flex-1 p-4 text-center  ">{item.name}</div>
+        <div className="flex-1 p-4 text-center">{item.name}</div>
         <div className="flex-1 p-4 text-center">{item.distance}</div>
       </div>
     );
@@ -43,7 +43,7 @@ export default function Servers() {
   }, [allServers, isAuthenticated, loading, error, dispatch]);
 
   return (
-    <div className="md:container md:mx-auto p-8">
+    <div className="md:container md:mx-auto py-8 px-5 relative">
       <div className="bg-white rounded-xl shadow-md sm:w-full md:w-2/3 lg:w-1/2 mx-auto overflow-hidden">
         <div className="bg-brand text-white">
           <div className="flex flex-row font-medium">
@@ -63,14 +63,15 @@ export default function Servers() {
             </div>
           </div>
         </div>
+        <div>
+          {loading && (
+            <div className="flex flex-1 justify-center items-center p-8">
+              <Spinner textColor="text-brand" />
+            </div>
+          )}
 
-        {loading && (
-          <div className="flex flex-1 justify-center items-center p-8">
-            <Spinner textColor="text-brand" />
-          </div>
-        )}
-
-        {allServers?.map(renderItems)}
+          {allServers?.map(renderItems)}
+        </div>
       </div>
     </div>
   );

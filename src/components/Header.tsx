@@ -15,16 +15,21 @@ export default function Header() {
 
   const [navToggle, setNavToggle] = useState(false);
 
+  const hideMenu = () => {
+    setNavToggle(false);
+  };
+
   const onClickMenu = () => {
     setNavToggle(!navToggle);
   };
 
   const onClickLogout = () => {
+    hideMenu();
     dispatch(logout());
   };
 
   return (
-    <header className="sticky top-0 z-50 h-[50px] bg-black flex items-center justify-between flex-wrap text-white font-medium relative ">
+    <header className="sticky top-0 z-50 min-h-[50px] bg-black flex items-center justify-between flex-wrap text-white font-medium relative ">
       <div className="flex items-center">
         <Link to="/" className="block p-5">
           <img src={logo} className="" alt="logo" />
@@ -51,15 +56,15 @@ export default function Header() {
       </div>
       <nav
         className={`absolute top-[50px] left-0 ${
-          navToggle ? "hidden" : "block"
+          navToggle ? "block" : "hidden"
         }  w-full flex-grow justify-end bg-black min-h-screen md:flex md:items-center md:w-auto md:shadow-none md:static md:min-h-0`}
       >
-        <Link to="/" className={linkStyle}>
+        <Link to="/" className={linkStyle} onClick={hideMenu}>
           Main
         </Link>
 
         {isAuthenticated && (
-          <Link to="servers" className={linkStyle}>
+          <Link to="servers" className={linkStyle} onClick={hideMenu}>
             Servers
           </Link>
         )}
@@ -71,7 +76,7 @@ export default function Header() {
         )}
 
         {!isAuthenticated && (
-          <Link to="login" className={linkStyle}>
+          <Link to="login" className={linkStyle} onClick={hideMenu}>
             Login
           </Link>
         )}

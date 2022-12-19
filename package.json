@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "check-types": "tsc --noemit --skipLibCheck",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "surge build/"
   },
   "eslintConfig": {
     "extends": [

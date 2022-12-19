@@ -38,15 +38,15 @@ export default function Login() {
   }, [token, navigate]);
 
   return (
-    <section className="md:container md:mx-auto p-8">
+    <section className=" flex items-center justify-center md:container md:mx-auto p-8 min-h-[80vh]">
       <form
-        className="bg-white rounded-xl shadow-md sm:w-full md:w-2/3 lg:w-1/2 py-6 px-8 mx-auto"
+        className="bg-white rounded-xl shadow-md w-full md:w-[570px] py-6 px-8"
         onSubmit={onSubmit}
       >
         <div className="py-2">
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-foreground-light dark:text-white"
+            className="block mb-2 text-sm font-medium text-foreground-light"
           >
             Name
           </label>
@@ -62,7 +62,7 @@ export default function Login() {
         <div className="py-2">
           <label
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-foreground-light dark:text-white"
+            className="block mb-2 text-sm font-medium text-foreground-light"
           >
             Password
           </label>
@@ -78,7 +78,7 @@ export default function Login() {
         <div className="py-2 grid place-content-center ">
           <button
             type="submit"
-            className="text-white bg-brand hover:bg-brand disabled:bg-gray-200 disabled:cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-brand-light font-medium rounded-full text-sm w-full sm:w-auto px-8 py-4 mt-4 min-w-[100px] text-center transition-all"
+            className="text-white font-medium bg-brand hover:bg-brand disabled:bg-gray-200 disabled:cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-brand-light  rounded-full sm:w-auto px-8 py-3 mt-4 min-w-[100px] text-center transition-all"
             disabled={!isValid() || loading}
             onClick={onSubmit}
           >
