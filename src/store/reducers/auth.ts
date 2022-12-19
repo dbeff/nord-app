@@ -27,10 +27,15 @@ export const authSlice = createSlice({
     loading(state) {
       state.loading = true;
     },
-    authenticate(state, action: PayloadAction<TokenPayload>) {
-      state.token = action.payload.token;
-      state.isAuthenticated = true;
-      state.loading = false;
+    login(state, action: PayloadAction<TokenPayload>) {
+      return {
+        ...initialState,
+        token: action.payload.token,
+        isAuthenticated: true,
+      };
+    },
+    logout(state) {
+      return initialState;
     },
     setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
@@ -48,7 +53,7 @@ export const fetchToken = (user: string, password: string) => {
         password: password,
       })
       .then((response) => {
-        dispatch(authSlice.actions.authenticate(response.data));
+        dispatch(authSlice.actions.login(response.data));
       })
       .catch((error) => {
         dispatch(authSlice.actions.setError(error));
