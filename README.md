@@ -42,7 +42,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run e2e:open`
 
-Run cypress in a standalone window as a dashboard to visualize, debug and run tests.
+Run cypress in a standalone window as a dashboard to visualize, debug and run End-To-End tests.
 
 ![Screenshot](https://raw.githubusercontent.com/dbeff/nord-app/main/res/cypress-screenshot.png)
 
