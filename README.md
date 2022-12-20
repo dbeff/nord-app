@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Teso Servers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+This project was bootstrapped with: 
+
+[Create React App](https://github.com/reduxjs/cra-template-redux-typescript)
+[Typescript](https://www.typescriptlang.org/)
+[Redux](https://redux.js.org/)
+[Redux Toolkit](https://redux-toolkit.js.org/)
+[React Router](https://reactrouter.com/en/main)
+[Cypress](https://docs.cypress.io/) for E2E
+[Tailwind](https://tailwindcss.com/)
 
 ## Available Scripts
 
