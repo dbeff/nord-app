@@ -2,13 +2,13 @@
 
 This project was bootstrapped with: 
 
-[Create React App](https://github.com/reduxjs/cra-template-redux-typescript)
-[Typescript](https://www.typescriptlang.org/)
-[Redux](https://redux.js.org/)
-[Redux Toolkit](https://redux-toolkit.js.org/)
-[React Router](https://reactrouter.com/en/main)
-[Cypress](https://docs.cypress.io/) for E2E
-[Tailwind](https://tailwindcss.com/)
+[Create React App](https://github.com/reduxjs/cra-template-redux-typescript)  
+[Typescript](https://www.typescriptlang.org/)  
+[Redux](https://redux.js.org/)  
+[Redux Toolkit](https://redux-toolkit.js.org/)  
+[React Router](https://reactrouter.com/en/main)  
+[Cypress](https://docs.cypress.io/) for E2E  
+[Tailwind](https://tailwindcss.com/) 
 
 ## Available Scripts
 
