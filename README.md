@@ -8,7 +8,7 @@ This project was bootstrapped with:
 [Redux Toolkit](https://redux-toolkit.js.org/)  
 [React Router](https://reactrouter.com/en/main)  
 [Cypress](https://docs.cypress.io/) for E2E  
-[Tailwind](https://tailwindcss.com/) 
+[Tailwind](https://tailwindcss.com/) using postcss
 
 **Demo**: https://nord-app.vercel.app
 
