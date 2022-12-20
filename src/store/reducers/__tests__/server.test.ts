@@ -54,4 +54,12 @@ describe("server reducer", () => {
     expect(actual.loading).toEqual(false);
     expect(actual.error).toEqual(null);
   });
+
+  it("should handle error action", () => {
+    const actual = serverSlice.reducer(
+      { ...initialState },
+      serverSlice.actions.setError("error")
+    );
+    expect(actual.error).toEqual("error");
+  });
 });
