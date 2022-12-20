@@ -3,8 +3,8 @@ describe("servers", () => {
     cy.intercept("https://playground.tesonet.lt/v1/tokens", {
       token: "mock-token",
     }).as("getToken");
-    cy.get("input[name='username']").type("tesonet");
-    cy.get("input[name='password']").type("partyanimal");
+    cy.get("input[name='username']").type("user");
+    cy.get("input[name='password']").type("password");
     cy.get('button[type="submit"]').click();
     cy.wait("@getToken").then((interception) => {
       cy.log("@getToken loaded");
