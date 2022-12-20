@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { RootState } from "../store/store";
 import { fetchToken } from "../store/reducers/auth";
@@ -8,8 +8,10 @@ import Spinner from "../components/Spinner";
 
 export default function Login() {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const { loading, token } = useAppSelector((state: RootState) => state.auth);
+
+  const { loading, isAuthenticated } = useAppSelector(
+    (state: RootState) => state.auth
+  );
   const [inputValues, setInputValues] = useState({
     username: "",
     password: "",
@@ -33,9 +35,9 @@ export default function Login() {
     login();
   };
 
-  useEffect(() => {
-    if (token) navigate("main");
-  }, [token, navigate]);
+  if (isAuthenticated) {
+    return <Navigate to="/servers" replace={true} />;
+  }
 
   return (
     <section className="flex items-center justify-center md:container md:mx-auto p-8 min-h-[80vh]">

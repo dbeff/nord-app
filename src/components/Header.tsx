@@ -11,7 +11,7 @@ export default function Header() {
   const { logout } = authSlice.actions;
   const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
 
-  const linkStyle = `block lg:inline-block p-5 hover:opacity-80 transition-opacity cursor-pointer `;
+  const linkStyle = `block lg:inline-block p-5 hover:opacity-80 transition-opacity cursor-pointer`;
 
   const [navToggle, setNavToggle] = useState(false);
 

@@ -48,6 +48,7 @@ export default function Servers() {
         <div className="bg-brand text-white">
           <div className="flex flex-row font-medium">
             <div
+              id="servers-header"
               className="flex flex-1 p-4 text-center items-center justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
               onClick={onClickName}
             >
@@ -55,6 +56,7 @@ export default function Servers() {
               <ChevronUpDownIcon className="h-6 w-6 mx-2" />
             </div>
             <div
+              id="distance-header"
               className="flex flex-1 p-4 text-center items-center justify-center cursor-pointer select-none active:bg-brand-dark transition-colors"
               onClick={onClickDistance}
             >

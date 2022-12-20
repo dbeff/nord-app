@@ -27,8 +27,8 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main />}>
-              <Route path="Main" element={<Main />} index />
-              <Route path="Servers" element={<Servers />} />
+              <Route path="main" element={<Main />} index />
+              <Route path="servers" element={<Servers />} />
               <Route path="login" element={<Login />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Route>
