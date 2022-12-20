@@ -25,6 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "npm test -- --coverage --watchAll",
     "eject": "react-scripts eject",
     "e2e:run": "npx cypress run",
     "e2e:open": "npx cypress open",

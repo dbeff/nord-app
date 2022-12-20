@@ -9,7 +9,7 @@ import Spinner from "../components/Spinner";
 export default function Login() {
   const dispatch = useAppDispatch();
 
-  const { loading, isAuthenticated } = useAppSelector(
+  const { loading, isAuthenticated, error } = useAppSelector(
     (state: RootState) => state.auth
   );
   const [inputValues, setInputValues] = useState({
@@ -87,6 +87,11 @@ export default function Login() {
             {loading ? <Spinner /> : <span>Login</span>}
           </button>
         </div>
+        {error && (
+          <div className="px-6 py-2 text-red-400 text-sm text-center">
+            Please check your credencials and try again.
+          </div>
+        )}
       </form>
     </section>
   );
