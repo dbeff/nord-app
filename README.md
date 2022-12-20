@@ -10,7 +10,9 @@ This project was bootstrapped with:
 [Cypress](https://docs.cypress.io/) for E2E  
 [Tailwind](https://tailwindcss.com/) 
 
-## Available Scripts
+**Demo**: https://nord-app.vercel.app
+
+## Scripts
 
 In the project directory, you can run:
 
